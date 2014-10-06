@@ -23,6 +23,8 @@ function Board() {
 				$(selector).html(this.dice[i].face);
 				this.dice[i].tr = tr;
 				this.dice[i].td = td;
+				this.dice[i].dom = $(selector);
+
 				i += 1;
 			}
 		}

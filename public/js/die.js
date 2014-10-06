@@ -3,6 +3,7 @@ function Die(face) {
   this.highlight = false;
   this.tr = 0;
   this.td = 0;
+  this.dom = "";
   this.neighbors = [];
 }
 
