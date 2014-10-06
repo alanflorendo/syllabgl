@@ -17,8 +17,9 @@ th {
 	height: 50px;
 }
 
-#board td {
+.die {
 	width: 50px;
 	border: 2px solid red;
 	text-align: center;
+	font-family: 'Montserrat', sans-serif;
 }
