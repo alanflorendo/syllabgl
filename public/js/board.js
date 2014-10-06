@@ -30,4 +30,18 @@ function Board() {
 		}
 	}
 
+	this.findDie = function(row, col) {
+		var i = 0;
+		for (var tr=1; tr<=SIDE; tr++){ // go thru each row
+			for (var td=1; td<=SIDE; td++){ // go thru each col
+				if (this.dice[i].tr === row && this.dice[i].td === col)
+					return this.dice[i];
+				i += 1;
+			}
+		}
+
+
+
+	}
+
 }
