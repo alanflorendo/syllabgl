@@ -1,6 +1,9 @@
 function Die(face) {
   this.face = face;
   this.highlight = false;
+  this.tr = 0;
+  this.td = 0;
+  this.neighbors = [];
 }
 
 
