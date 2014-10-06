@@ -8,3 +8,17 @@
 th {
   text-align: left;
 }
+
+#board {
+	background-color: lightgreen;
+}
+
+#board tr {
+	height: 50px;
+}
+
+#board td {
+	width: 50px;
+	border: 2px solid red;
+	text-align: center;
+}

@@ -1,23 +1,36 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world. Whoops!</p>
 
-  <table>
+  <table id="board">
+  
     <tr>
-      <th>File Description</th>
-      <th>File Location</th>
+      <td class="die">X</td>
+      <td class="die">X</td>
+      <td class="die">A</td>
+      <td class="die">X</td>
     </tr>
+  
     <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
+      <td class="die">X</td>
+      <td class="die">R</td>
+      <td class="die">X</td>
+      <td class="die">X</td>
     </tr>
+  
     <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+      <td class="die">X</td>
+      <td class="die">B</td>
+      <td class="die">T</td>
+      <td class="die">U</td>
     </tr>
+  
     <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+      <td class="die">O</td>
+      <td class="die">R</td>
+      <td class="die">I</td>
+      <td class="die">M</td>
     </tr>
+  
   </table>
+
+
 </div>
