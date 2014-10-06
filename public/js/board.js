@@ -21,6 +21,8 @@ function Board() {
 			for (var td=1; td<=SIDE; td++){ // go thru each col
 				var selector = '#board tr:nth-child(' + tr + ') td:nth-child(' + td +')'
 				$(selector).html(this.dice[i].face);
+				this.dice[i].tr = tr;
+				this.dice[i].td = td;
 				i += 1;
 			}
 		}
