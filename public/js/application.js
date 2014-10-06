@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	b = new Board;
 	b.putBoardInDOM();
+	b.generateDiesNeighbors();
 
 	var doWord = function() {
 		var word = $("#boggle_word").val();

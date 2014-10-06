@@ -14,6 +14,17 @@ function Board() {
 	  return dice;
 	}
 
+	this.generateDiesNeighbors = function() {
+		var i = 0;
+		for (var tr=1; tr<=SIDE; tr++){ // go thru each row
+			for (var td=1; td<=SIDE; td++){ // go thru each col
+				this.dice[i].findNeighbors(this);
+				i += 1;
+			}
+		}
+
+	}
+
 	this.putBoardInDOM = function() {
 		this.dice = this.generateDice();
 		var i = 0;
