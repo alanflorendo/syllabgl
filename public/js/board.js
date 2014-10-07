@@ -1,6 +1,7 @@
 	
 function Board() {
 	SIDE = 5
+	this.score = 0;
 	var dice = [];
 
 	this.generateDice = function() {
@@ -86,11 +87,19 @@ function Board() {
 	this.addWordToDOM = function(word) {
 		if (word.length === 3) {
 			$("#completed_words_3").append(word + ", ");
+			this.score += 1;
 		} else if (word.length === 4) {
 			$("#completed_words_4").append(word + ", ");
+			this.score += 2;
 		} else {
 			$("#completed_words_long").append(word + ", ");
+			this.score += 3;
 		}
+		this.updateScore();
+	}
+
+	this.updateScore = function() {
+		$("#score_num").html(this.score);
 	}
 
 	this.thisWordWorks = function(diceCollections) {

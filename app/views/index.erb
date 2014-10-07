@@ -2,64 +2,75 @@
 
   <h2 id="banner_title"><span id="title1">sylla</span><span id="title2">BGL</span></h2>
 
-  <div id="word_entry">
-    <p>Enter Word</p>
-    <input id="boggle_word" type="text" name="entered_word"><br>
-  </div>
+  <div id="main_panel_row">
+    <div id="main_panel_col_1">
+      <div id="word_entry">
+        <h4>Enter Word</h4>
+        <input id="boggle_word" type="text" name="entered_word"><br>
+      </div>
 
-  <table id="board">
-  
-    <tr>
-      <td class="die">X</td>
-      <td class="die">X</td>
-      <td class="die">A</td>
-      <td class="die">X</td>
-      <td class="die">X</td>
-    </tr>
-  
-    <tr>
-      <td class="die">X</td>
-      <td class="die">R</td>
-      <td class="die">R</td>
-      <td class="die">X</td>
-      <td class="die">X</td>
-    </tr>
-  
-    <tr>
-      <td class="die">X</td>
-      <td class="die">B</td>
-      <td class="die">B</td>
-      <td class="die">T</td>
-      <td class="die">U</td>
-    </tr>
-  
-    <tr>
-      <td class="die">O</td>
-      <td class="die">R</td>
-      <td class="die">R</td>
-      <td class="die">I</td>
-      <td class="die">M</td>
-    </tr>
-  
-    <tr>
-      <td class="die">O</td>
-      <td class="die">R</td>
-      <td class="die">R</td>
-      <td class="die">I</td>
-      <td class="die">M</td>
-    </tr>
-  
-  </table>
+      <div id="score">
+        <h4>SCORE</h4>
+        <h4 id="score_num">0</h4>
+      </div>
 
-  <div id="not_a_word">
-    <div>
-    <!-- <div class="words_lists"> -->
-      <h4>THESE AREN'T WORDS!!</h4>
-      <p id="not_words"></p>
+    </div> <!-- end main_panel_col_1 -->
+
+    <table id="board" id="main_panel_col_2">
+    
+      <tr>
+        <td class="die">X</td>
+        <td class="die">X</td>
+        <td class="die">A</td>
+        <td class="die">X</td>
+        <td class="die">X</td>
+      </tr>
+    
+      <tr>
+        <td class="die">X</td>
+        <td class="die">R</td>
+        <td class="die">R</td>
+        <td class="die">X</td>
+        <td class="die">X</td>
+      </tr>
+    
+      <tr>
+        <td class="die">X</td>
+        <td class="die">B</td>
+        <td class="die">B</td>
+        <td class="die">T</td>
+        <td class="die">U</td>
+      </tr>
+    
+      <tr>
+        <td class="die">O</td>
+        <td class="die">R</td>
+        <td class="die">R</td>
+        <td class="die">I</td>
+        <td class="die">M</td>
+      </tr>
+    
+      <tr>
+        <td class="die">O</td>
+        <td class="die">R</td>
+        <td class="die">R</td>
+        <td class="die">I</td>
+        <td class="die">M</td>
+      </tr>
+    
+    </table>
+
+    <div id="not_a_word">
+      <div>
+      <!-- <div class="words_lists"> -->
+        <h4>THESE AREN'T WORDS!!</h4>
+        <p id="not_words"></p>
+      </div>
     </div>
-  </div>
 
-  <div id="words_so_far">
+  </div> <!-- end main_panel_row -->
+
+  <div id="words_so_far" id="main_panel_col_3">
     <div class="words_lists">
       <h4>THREE LETTER WORDS</h4>
       <p id="completed_words_3"></p>
