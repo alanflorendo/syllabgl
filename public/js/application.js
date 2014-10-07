@@ -11,6 +11,9 @@ $(document).ready(function() {
 	var doWord = function() {
 		var word = $("#boggle_word").val().toUpperCase();
 		$("#boggle_word").val("");
+		if (word.length < 3) {
+			return false;
+		}
 		if (isWord(word)) {
 			wc = new WordChecker(word, b);
 			var dice = wc.checkWord();
@@ -18,7 +21,7 @@ $(document).ready(function() {
 				b.thisWordWorks(dice);
 			}
 		} else {
-			console.log(word.toUpperCase() + " IS NOT A WORD!!!");
+			b.rejectWord(word);
 		}
 	}
 

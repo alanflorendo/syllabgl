@@ -1,6 +1,6 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 70%;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
 }
@@ -21,6 +21,7 @@
 
 #word_entry {
 	float: left;
+	margin-right: 10%;
 }
 
 th {
@@ -30,6 +31,9 @@ th {
 #board {
 	margin: 10% auto;
 	background-color: lightgreen;
+	display: inline-block;
+	float: left;
+	margin: 3% auto 5% auto;
 }
 
 #board tr {
@@ -45,4 +49,23 @@ th {
 
 #words_so_far {
 	border: 2px dotted gray;
+	display: inline-block;
+	width: 90%;
+	height: 200px;
+}
+
+#not_a_word {
+	border: 1px dotted lightgrey;
+	float: left;
+	padding: 3%;
+	margin: 6% 8%;
+	height: 200px;
+}
+
+.words_lists {
+	width: 27%;
+	padding: 3%;
+	height: 200px;
+	float: left;
+	border: 1px dotted lightgrey;
 }

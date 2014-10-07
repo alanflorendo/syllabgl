@@ -178694,7 +178694,7 @@ function Dictionary() {
 		];
 
 	this.isARealWord = function(word) {
-		if (this.words.indexOf(word.toUpperCase()) === -1) 
+		if (this.words.indexOf(word) === -1) 
 			return false
 		else
 			return true;

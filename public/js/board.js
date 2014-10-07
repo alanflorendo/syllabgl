@@ -84,7 +84,13 @@ function Board() {
 	}
 
 	this.addWordToDOM = function(word) {
-		$("#completed_words").append(word + ", ");
+		if (word.length === 3) {
+			$("#completed_words_3").append(word + ", ");
+		} else if (word.length === 4) {
+			$("#completed_words_4").append(word + ", ");
+		} else {
+			$("#completed_words_long").append(word + ", ");
+		}
 	}
 
 	this.thisWordWorks = function(diceCollections) {
@@ -92,6 +98,9 @@ function Board() {
 		this.highlightDiceCollections(diceCollections, "pink");;
 	}
 
+	this.rejectWord = function(word) {
+		$("#not_words").append(word + ", ");
+	}
 
 
 }
