@@ -50,9 +50,12 @@ function Board() {
 				i += 1;
 			}
 		}
-
-
-
 	}
+
+	this.highlightDie = function(die, color) {
+		$(die.dom).css("background-color", color);
+	}
+
+
 
 }
