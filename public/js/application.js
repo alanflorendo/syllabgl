@@ -6,6 +6,7 @@ $(document).ready(function() {
 	var doWord = function() {
 		var word = $("#boggle_word").val().toUpperCase();
 		console.log(word);
+		$("#boggle_word").val("");
 	}
 
 	$(document).keydown(function(event){
