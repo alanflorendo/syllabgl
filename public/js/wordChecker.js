@@ -7,6 +7,17 @@ function WordChecker(word, board) {
 		do {
 			this.traceOutPossiblesOneDie();
 		} while (this.possibleCombos.length != 0);
+		// REMOVE ANY COMBOS WITH OVERLAPPING DUPLICATES?????
+		this.highlightWord(0);
+	}
+
+	this.highlightWord = function(ind) {
+		if (this.confirmedCombos.length > 0) {
+			for (var i=0; i<this.confirmedCombos[ind].length; i++) {
+				console.log("HEY" + i);
+				this.confirmedCombos[ind][i].dom.css("background-color", "pink");
+			}
+		}
 	}
 
 	this.wordExcerpt = function(word, start, len) {
