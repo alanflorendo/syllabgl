@@ -2,6 +2,13 @@ function WordChecker(word, board) {
 	this.possibleCombos = [];
 	this.confirmedCombos = []
 
+	this.checkWord = function() {
+		this.findPossibleFirsts();
+		do {
+			this.traceOutPossiblesOneDie();
+		} while (this.possibleCombos.length != 0);
+	}
+
 	this.wordExcerpt = function(word, start, len) {
 		var chars = []
 		for (var i=0; i<len; i++) {
