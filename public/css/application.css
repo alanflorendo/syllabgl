@@ -5,6 +5,24 @@
   border: 1px dotted black;
 }
 
+#banner_title {
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+}
+
+#title1 {
+	color: magenta;
+
+}
+
+#title2 {
+	color: purple;
+}
+
+#word_entry {
+	float: left;
+}
+
 th {
   text-align: left;
 }
