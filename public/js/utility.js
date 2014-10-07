@@ -27,3 +27,6 @@ function clone(obj) {
     return copy;
 }
 
+function reverseString(string) {
+  return string.split('').reverse().join('');
+}

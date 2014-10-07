@@ -29,7 +29,8 @@ function WordChecker(word, board) {
 			for (var td=1; td<=SIDE; td++){ // go thru each col
 				var die = board.dice[i]
 				var textLength = die.face.length;
-				if (die.face === this.wordExcerpt(word, 0, textLength)) {
+				if (die.face === this.wordExcerpt(word, 0, textLength) ||
+						reverseString(die.face) === this.wordExcerpt(word, 0, textLength)) {
 					this.possibleCombos.push([die]);
 				}
 			i += 1;
@@ -53,7 +54,8 @@ function WordChecker(word, board) {
 			numNeighbors = lastDie.neighbors.length;
 			for (var n=0; n<numNeighbors ; n++) {
 				var neighbor = lastDie.neighbors[n];
-				if (neighbor.face === this.wordExcerpt(word, numLettersSoFar, neighbor.face.length)) {
+				if (neighbor.face === this.wordExcerpt(word, numLettersSoFar, neighbor.face.length) ||
+						reverseString(neighbor.face) === this.wordExcerpt(word, numLettersSoFar, neighbor.face.length)) {
 					var currentArray = clone(this.possibleCombos[i]); 
 					currentArray[currentArray.length] = neighbor;
 					newPossibles[newPossibles.length] = currentArray;
