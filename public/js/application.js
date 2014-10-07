@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 	$(document).keydown(function(event){
 			k = event.keyCode
-			if(k==13)
+			if(k==13)  // enter key
 				doWord()
 			else
 				$('#boggle_word').focus();

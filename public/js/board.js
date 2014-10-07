@@ -65,13 +65,11 @@ function Board() {
 	this.highlightDiceCollections = function(collection, color) {
 		for (var i=0; i<collection.length; i++) {
 			this.highlightDice(collection[i], color);
-			console.log("Dice Collection Length: " + i);
 		}
 	}
 
 	this.flashDice = function(dice) {
 		for (var i=0; i<20; i++) {
-			console.log("highlight" + i);
 			this.highlightDice(dice, "pink");
 			this.highlightDice(dice, "lightgreen");
 		}
