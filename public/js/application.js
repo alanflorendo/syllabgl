@@ -4,7 +4,7 @@ $(document).ready(function() {
 	b.generateDiesNeighbors();
 
 	var doWord = function() {
-		var word = $("#boggle_word").val();
+		var word = $("#boggle_word").val().toUpperCase();
 		console.log(word);
 	}
 

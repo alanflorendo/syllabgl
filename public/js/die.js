@@ -42,6 +42,6 @@ function LetterGenerator() {
 
   this.getRandomFace = function() {
     this.randomFace = this.randomFaces.shift();
-    return this.randomFace;
+    return this.randomFace.toUpperCase();
   }
 }
