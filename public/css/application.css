@@ -1,9 +1,10 @@
 .container {
-  margin: 20px auto;
-  width: 70%;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  margin: 1% auto;
+  width: 85%;
+  padding: 0.5%;
+  border: 0.2% dotted black;
   background-color: lightcyan;
+  font-size: 1em;
 }
 
 #banner_title {
@@ -27,9 +28,9 @@
 
 #main_panel_row {
 	display: inline-block;
-	border: 3px solid red;
 	width: 95%;
-	padding: 2%;
+	padding: 0.8%;
+	border: 2px solid black;
 }
 
 #main_panel_col_1 {
@@ -38,7 +39,7 @@
 	margin-right: 5%;
 	margin-top: 2%;
 	padding: 1%;
-	border: 1px solid black;
+	border: 0.5% solid black;
 	text-align: center;
 
 }
@@ -48,10 +49,9 @@ th {
 }
 
 #board {
-	margin: 10% auto;
+	margin: 5% auto;
 	display: inline-block;
 	float: left;
-	margin: 3% auto 5% auto;
 }
 
 #board tr {
@@ -70,7 +70,7 @@ th {
 	border: 2px dotted gray;
 	display: inline-block;
 	width: 90%;
-	height: 200px;
+	/*height: 200px;*/
 }
 
 #not_a_word {
@@ -78,13 +78,15 @@ th {
 	float: left;
 	padding: 3%;
 	margin: 	3% 6%;
-	height: 200px;
+	width: 22%;
+	/*height: 200px;*/
 }
 
 .words_lists {
 	width: 27%;
-	padding: 3%;
-	height: 200px;
+	padding: 1% 1%;
+	text-align: center;
+	/*height: 200px;*/
 	float: left;
 	border: 1px dotted lightgrey;
 }
