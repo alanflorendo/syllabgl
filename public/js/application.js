@@ -5,8 +5,9 @@ $(document).ready(function() {
 
 	var doWord = function() {
 		var word = $("#boggle_word").val().toUpperCase();
-		console.log(word);
 		$("#boggle_word").val("");
+		wc = new WordChecker(word, b);
+		wc.checkWord();
 	}
 
 	$(document).keydown(function(event){

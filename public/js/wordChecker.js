@@ -14,7 +14,6 @@ function WordChecker(word, board) {
 	this.highlightWord = function(ind) {
 		if (this.confirmedCombos.length > 0) {
 			for (var i=0; i<this.confirmedCombos[ind].length; i++) {
-				console.log("HEY" + i);
 				this.confirmedCombos[ind][i].dom.css("background-color", "pink");
 			}
 		}
