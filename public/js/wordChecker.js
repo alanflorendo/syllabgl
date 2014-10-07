@@ -1,6 +1,6 @@
 function WordChecker(word, board) {
 	this.possibleCombos = [];
-	this.confirmedCombos = []
+	this.confirmedCombos = [];
 
 	this.checkWord = function() {
 		this.findPossibleFirsts();
