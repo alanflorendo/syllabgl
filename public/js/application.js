@@ -9,6 +9,7 @@ $(document).ready(function() {
 	}
 
 	var doWord = function() {
+		b.highlightDice(b.dice, "lightgreen");
 		var word = $("#boggle_word").val().toUpperCase();
 		$("#boggle_word").val("");
 		if (word.length < 3) {

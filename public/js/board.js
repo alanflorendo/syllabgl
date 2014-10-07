@@ -69,13 +69,6 @@ function Board() {
 		}
 	}
 
-	this.flashDice = function(dice) {
-		for (var i=0; i<20; i++) {
-			this.highlightDice(dice, "pink");
-			this.highlightDice(dice, "lightgreen");
-		}
-	}
-
 	this.diceToWord = function(dice) {
 		wordChars = [];
 		for (var i=0; i<dice.length; i++) {
@@ -104,7 +97,7 @@ function Board() {
 
 	this.thisWordWorks = function(diceCollections) {
 		this.addWordToDOM(this.diceToWord(diceCollections[0]));
-		this.highlightDiceCollections(diceCollections, "pink");;
+		this.highlightDiceCollections(diceCollections, "pink");
 	}
 
 	this.rejectWord = function(word) {
