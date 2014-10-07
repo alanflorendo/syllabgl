@@ -8,15 +8,10 @@ function WordChecker(word, board) {
 			this.traceOutPossiblesOneDie();
 		} while (this.possibleCombos.length != 0);
 		// REMOVE ANY COMBOS WITH OVERLAPPING DUPLICATES?????
-		this.highlightWord(0);
-	}
-
-	this.highlightWord = function(ind) {
-		if (this.confirmedCombos.length > 0) {
-			for (var i=0; i<this.confirmedCombos[ind].length; i++) {
-				this.confirmedCombos[ind][i].dom.css("background-color", "pink");
-			}
-			$("#completed_words").append(word + ", ");
+		if (this.confirmedCombos.length >= 1) {
+			return this.confirmedCombos;
+		} else {
+			return false
 		}
 	}
 

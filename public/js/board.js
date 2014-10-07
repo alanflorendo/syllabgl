@@ -56,6 +56,44 @@ function Board() {
 		$(die.dom).css("background-color", color);
 	}
 
+	this.highlightDice = function(dice, color) {
+		for (var i=0; i<dice.length; i++) {
+			this.highlightDie(dice[i], color);
+		}
+	}
+
+	this.highlightDiceCollections = function(collection, color) {
+		for (var i=0; i<collection.length; i++) {
+			this.highlightDice(collection[i], color);
+			console.log("Dice Collection Length: " + i);
+		}
+	}
+
+	this.flashDice = function(dice) {
+		for (var i=0; i<20; i++) {
+			console.log("highlight" + i);
+			this.highlightDice(dice, "pink");
+			this.highlightDice(dice, "lightgreen");
+		}
+	}
+
+	this.diceToWord = function(dice) {
+		wordChars = [];
+		for (var i=0; i<dice.length; i++) {
+			wordChars.push(dice[i].face)
+		}
+		return wordChars.join("");
+	}
+
+	this.addWordToDOM = function(word) {
+		$("#completed_words").append(word + ", ");
+	}
+
+	this.thisWordWorks = function(diceCollections) {
+		this.addWordToDOM(this.diceToWord(diceCollections[0]));
+		this.highlightDiceCollections(diceCollections, "pink");;
+	}
+
 
 
 }

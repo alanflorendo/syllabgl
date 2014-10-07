@@ -7,7 +7,10 @@ $(document).ready(function() {
 		var word = $("#boggle_word").val().toUpperCase();
 		$("#boggle_word").val("");
 		wc = new WordChecker(word, b);
-		wc.checkWord();
+		var dice = wc.checkWord();
+		if (dice != false) {
+			b.thisWordWorks(dice);
+		}
 	}
 
 	$(document).keydown(function(event){
