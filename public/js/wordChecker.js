@@ -16,6 +16,7 @@ function WordChecker(word, board) {
 			for (var i=0; i<this.confirmedCombos[ind].length; i++) {
 				this.confirmedCombos[ind][i].dom.css("background-color", "pink");
 			}
+			$("#completed_words").append(word + ", ");
 		}
 	}
 

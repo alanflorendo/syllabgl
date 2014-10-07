@@ -24,3 +24,7 @@ th {
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 }
+
+#words_so_far {
+	border: 2px dotted gray;
+}

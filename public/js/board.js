@@ -1,4 +1,4 @@
-
+	
 function Board() {
 	SIDE = 5
 	var dice = [];
