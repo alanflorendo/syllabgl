@@ -2,6 +2,7 @@
 function Board() {
 	SIDE = 5
 	this.score = 0;
+	this.wordsGuessed = [];
 	var dice = [];
 
 	this.generateDice = function() {
@@ -88,7 +89,16 @@ function Board() {
 			$("#completed_words_long").append(word + ", ");
 			this.score += 3;
 		}
+		this.wordsGuessed.push(word);
 		this.updateScore();
+	}
+
+	this.wordAlreadyGuessed = function(word) {
+		if (this.wordsGuessed.indexOf(word) === -1) {
+			return false
+		} else {
+			return true;
+		}
 	}
 
 	this.updateScore = function() {

@@ -4,24 +4,29 @@ $(document).ready(function() {
 	b.putBoardInDOM();
 	b.generateDiesNeighbors();
 
-	var isWord = function(word) {
+	isWord = function(word) {
 		return dict.isARealWord(word);
 	}
 
-	var doWord = function() {
+	wordShouldBeSoughtOnBoard = function (word) {
+		if ( word.length < 3 || !isWord(word) ) {
+			return false
+		} else {
+			return true;
+		}
+	}
+
+	doWord = function() {
 		b.highlightDice(b.dice, "lightgreen");
 		var word = $("#boggle_word").val().toUpperCase();
 		$("#boggle_word").val("");
-		if (word.length < 3) {
-			return false;
-		}
-		if (isWord(word)) {
+		if ( wordShouldBeSoughtOnBoard(word) &&  !b.wordAlreadyGuessed(word)) {
 			wc = new WordChecker(word, b);
 			var dice = wc.checkWord();
 			if (dice != false) {
 				b.thisWordWorks(dice);
 			}
-		} else {
+		} else if ( !b.wordAlreadyGuessed(word) ) {
 			b.rejectWord(word);
 		}
 	}
