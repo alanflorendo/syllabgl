@@ -36,24 +36,31 @@ function WordChecker(word, board) {
 			}
 			// then for each of the neighbors of the last die in the combo
 			var lastDie = this.possibleCombos[i][this.possibleCombos[i].length-1]
-			console.log("JS line 36:  Last Die:");
-			console.log(lastDie.dom);
-			for (var n=0; n<lastDie.neighbors.length ; n++) {
+			console.log("The last day is located at (" + lastDie.tr + "," + lastDie.td + ")")
+			numNeighbors = lastDie.neighbors.length;
+			console.log("we will search this many neighbors:  " + numNeighbors);
+			for (var n=0; n<numNeighbors ; n++) {
 				console.log("neighbor # " + n + " is this face, " + lastDie.neighbors[n].face)
 				var neighbor = lastDie.neighbors[n];
 				if (neighbor.face === this.wordExcerpt(word, numLettersSoFar, neighbor.face.length)) {
-					console.log("JS Line 45:  so we've got a match")
-					var comboToPush = this.possibleCombos[i].push(neighbor);
-					newPossibles.push(comboToPush);
+					console.log("JS Line 45:  so we've got a match, with neighbor # " + n);
+					var currentArray = clone(this.possibleCombos[i]); 
+					currentArray[currentArray.length] = neighbor;
+					// console.log("currentArray, last item-face: " + currentArray[currentArray.length-1].face);
+					// console.log(neighbor.dom);
+					// var comboToPush = currentArray.push(neighbor);
+					newPossibles[newPossibles.length] = currentArray;
+					// newPossibles.push(comboToPush);
 					console.log("Here is the combo!");
-					console.log(comboToPush);
+					// console.log(comboToPush);
 					console.log(newPossibles);
 				}
 			}
 		}
 		console.log("at the end of the loop");
 		console.log(newPossibles);
-		this.possibles = newPossibles;
+		this.possibleCombos = newPossibles;
+		// this.possibles = ["alan", "gad"]
 	}
 
 }
