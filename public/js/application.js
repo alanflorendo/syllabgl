@@ -3,6 +3,8 @@ $(document).ready(function() {
 	dict = new Dictionary;
 	b.putBoardInDOM();
 	b.generateDiesNeighbors();
+	t = new GameTimer(90);
+	// var countdownTimer = setInterval('t.secondPassed()', 1000);
 
 	isWord = function(word) {
 		return dict.isARealWord(word);

@@ -1,6 +1,8 @@
 	
 function Board() {
 	SIDE = 5
+	this.turns = 0;
+	this.allDice = []
 	this.score = 0;
 	this.wordsGuessed = [];
 	var dice = [];
@@ -11,9 +13,14 @@ function Board() {
 	  for (var i=0; i<(SIDE * SIDE); i++){
 	    newDie = new Die(lg.getRandomFace());
 	    dice.push(newDie);
+	    this.allDice.push(newDie);
 	  }
 
 	  return dice;
+	}
+
+	this.shuffleDice = function() {
+
 	}
 
 	this.generateDiesNeighbors = function() {
