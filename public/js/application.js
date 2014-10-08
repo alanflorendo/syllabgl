@@ -24,7 +24,7 @@ $(document).ready(function() {
 			wc = new WordChecker(word, b);
 			var dice = wc.checkWord();
 			if (dice != false) {
-				b.thisWordWorks(dice);
+				b.thisWordWorks(word, dice);
 			}
 		} else if ( !b.wordAlreadyGuessed(word) ) {
 			b.rejectWord(word);

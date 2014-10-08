@@ -105,8 +105,8 @@ function Board() {
 		$("#score_num").html(this.score);
 	}
 
-	this.thisWordWorks = function(diceCollections) {
-		this.addWordToDOM(this.diceToWord(diceCollections[0]));
+	this.thisWordWorks = function(word, diceCollections) {
+		this.addWordToDOM(word);
 		this.highlightDiceCollections(diceCollections, "pink");
 	}
 
