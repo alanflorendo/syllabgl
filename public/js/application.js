@@ -5,6 +5,7 @@ $(document).ready(function() {
 	dict = new Dictionary;
 	b.putBoardInDOM();
 	b.generateDiesNeighbors();
+	dc = new DictChecker(dict, b);
 	// var countdownTimer = setInterval('t.secondPassed()', 1000);
 
 	isWord = function(word) {
