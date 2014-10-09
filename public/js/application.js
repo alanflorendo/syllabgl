@@ -1,9 +1,10 @@
 $(document).ready(function() {
+	g = new Game;
 	b = new Board;
+	t = new GameTimer(90);
 	dict = new Dictionary;
 	b.putBoardInDOM();
 	b.generateDiesNeighbors();
-	t = new GameTimer(90);
 	// var countdownTimer = setInterval('t.secondPassed()', 1000);
 
 	isWord = function(word) {
