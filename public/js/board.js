@@ -5,18 +5,20 @@ function Board() {
 	this.allDice = []
 	this.score = 0;
 	this.wordsGuessed = [];
-	var dice = [];
+	this.faces = [];
+	this.dice = [];
 
 	this.generateDice = function() {
 	  var lg = new LetterGenerator;
 
 	  for (var i=0; i<(SIDE * SIDE); i++){
 	    newDie = new Die(lg.getRandomFace());
-	    dice.push(newDie);
+	    this.dice.push(newDie);
+	    this.faces.push(newDie.face);
 	    this.allDice.push(newDie);
 	  }
 
-	  return dice;
+	  return this.dice;
 	}
 
 	this.shuffleDice = function() {
@@ -25,8 +27,8 @@ function Board() {
 
 	this.generateDiesNeighbors = function() {
 		var i = 0;
-		for (var tr=1; tr<=SIDE; tr++){ // go thru each row
-			for (var td=1; td<=SIDE; td++){ // go thru each col
+		for (var tr=1; tr<=5; tr++){ // go thru each row
+			for (var td=1; td<=5; td++){ // go thru each col
 				this.dice[i].findNeighbors(this);
 				i += 1;
 			}
@@ -52,8 +54,8 @@ function Board() {
 
 	this.findDie = function(row, col) {
 		var i = 0;
-		for (var tr=1; tr<=SIDE; tr++){ // go thru each row
-			for (var td=1; td<=SIDE; td++){ // go thru each col
+		for (var tr=1; tr<=5; tr++){ // go thru each row
+			for (var td=1; td<=5; td++){ // go thru each col
 				if (this.dice[i].tr === row && this.dice[i].td === col)
 					return this.dice[i];
 				i += 1;

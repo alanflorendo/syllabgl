@@ -23,9 +23,9 @@ function Die(face) {
       var newTR = this.tr + relChanges[0];
       var newTD = this.td + relChanges[1];
       if ( newTR >= 1 &&
-           newTR <= SIDE &&
+           newTR <= 5 &&
            newTD >= 1 &&
-           newTD <= SIDE ) {
+           newTD <= 5 ) {
         this.neighbors.push(board.findDie(newTR, newTD));
       }
     }
