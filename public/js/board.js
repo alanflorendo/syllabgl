@@ -1,6 +1,6 @@
 	
-function Board() {
-	SIDE = 5
+function Board(side) {
+	SIDE = side;
 	this.turns = 0;
 	this.allDice = []
 	this.score = 0;

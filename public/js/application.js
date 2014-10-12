@@ -1,37 +1,38 @@
 $(document).ready(function() {
 	g = new Game;
-	b = new Board;
+	// b = new Board;
 	t = new GameTimer(10, g);
 	dict = new Dictionary;
-	b.putBoardInDOM();
-	b.generateDiesNeighbors();
-	dc = new DictChecker(dict, b);
+	g.setupBoard();
+	// b.putBoardInDOM();
+	// b.generateDiesNeighbors();
+	dc = new DictChecker(dict, g.bd);
 	// var countdownTimer = setInterval('t.secondPassed()', 1000);
 
-	isWord = function(word) {
-		return dict.isARealWord(word);
-	}
+	// isWord = function(word) {
+	// 	return dict.isARealWord(word);
+	// }
 
-	wordShouldBeSoughtOnBoard = function (word) {
-		if ( word.length < 3 || !isWord(word) ) {
-			return false
-		} else {
-			return true;
-		}
-	}
+	// wordShouldBeSoughtOnBoard = function (word) {
+	// 	if ( word.length < 3 || !isWord(word) ) {
+	// 		return false
+	// 	} else {
+	// 		return true;
+	// 	}
+	// }
 
 	doWord = function() {
-		b.highlightDice(b.dice, "lightgreen");
+		g.bd.highlightDice(g.bd.dice, "lightgreen");
 		var word = $("#boggle_word").val().toUpperCase();
 		$("#boggle_word").val("");
-		if ( wordShouldBeSoughtOnBoard(word) &&  !b.wordAlreadyGuessed(word)) {
-			wc = new WordChecker(word, b);
+		if ( g.wordShouldBeSoughtOnBoard(word) &&  !g.bd.wordAlreadyGuessed(word)) {
+			wc = new WordChecker(word, g.bd);
 			var dice = wc.checkWord();
 			if (dice != false) {
-				b.thisWordWorks(word, dice);
+				g.bd.thisWordWorks(word, dice);
 			}
-		} else if ( !b.wordAlreadyGuessed(word) ) {
-			b.rejectWord(word);
+		} else if ( !g.bd.wordAlreadyGuessed(word) ) {
+			g.bd.rejectWord(word);
 		}
 	}
 
