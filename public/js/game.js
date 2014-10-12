@@ -1,8 +1,8 @@
 function Game() {
-	var TIMELIMIT = 90;
 	var BOARDSIZE = 5;
-	var DICT = new Dictionary;
+	this.dict = new Dictionary;
 
+	this.timelimit = 90;
 	this.gameOver = false;
 
 	this.setupBoard = function() {
@@ -16,7 +16,7 @@ function Game() {
 	}
 
 	this.isWord = function(word) {
-		return dict.isARealWord(word);
+		return this.dict.isARealWord(word);
 	}
 
 	this.wordShouldBeSoughtOnBoard = function(word) {
@@ -26,6 +26,23 @@ function Game() {
 			return true;
 		}
 	}
+
+	this.doWord = function() {
+		g.bd.highlightDice(g.bd.dice, "lightgreen");
+		var word = $("#boggle_word").val().toUpperCase();
+		$("#boggle_word").val("");
+		if ( g.wordShouldBeSoughtOnBoard(word) &&  !g.bd.wordAlreadyGuessed(word)) {
+			wc = new WordChecker(word, g.bd);
+			var dice = wc.checkWord();
+			if (dice != false) {
+				g.bd.thisWordWorks(word, dice);
+			}
+		} else if ( !g.bd.wordAlreadyGuessed(word) ) {
+			g.bd.rejectWord(word);
+		}
+	}
+
+
 
 
 
