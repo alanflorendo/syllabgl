@@ -87,7 +87,7 @@ function Board() {
 		return wordChars.join("");
 	}
 
-	this.addWordToDOM = function(word) {
+	this.addWordToDOMAndUpdateScore = function(word) {
 		if (word.length === 3) {
 			$("#completed_words_3").append(word + ", ");
 			this.score += 1;
@@ -115,8 +115,9 @@ function Board() {
 	}
 
 	this.thisWordWorks = function(word, diceCollections) {
-		this.addWordToDOM(word);
 		this.highlightDiceCollections(diceCollections, "pink");
+		if (!g.gameOver) 
+			this.addWordToDOMAndUpdateScore(word);
 	}
 
 	this.rejectWord = function(word) {

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	g = new Game;
 	b = new Board;
-	t = new GameTimer(90);
+	t = new GameTimer(10, g);
 	dict = new Dictionary;
 	b.putBoardInDOM();
 	b.generateDiesNeighbors();
