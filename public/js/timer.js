@@ -4,15 +4,17 @@
 // var countdownTimer;
 // var finalCountdown = false;
 
-function GameTimer(seconds) {
+function GameTimer(seconds, game) {
     this.seconds = seconds;
 
     this.nonNegativeTime = function() {
     	this.seconds--;
-    	if (this.seconds < 0)
+    	if (this.seconds < 0) {
     		return 0
-    	else
-    		return this.seconds
+            game.gameOver = true;
+        }
+        else
+            return this.seconds;
     }
 
     this.secondPassed = function() {
