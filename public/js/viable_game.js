@@ -14,6 +14,30 @@ function GameScenario(faces) {
 				this.maxScore += 3;
 		}
 	}
+
+	this.saveGame = function() {
+		$.ajaxSetup({
+		headers: {
+			'X-CSRF-Token':$('meta[name="csrf-token"]').attr("content")
+			}
+		});
+		$.ajax({
+			url: '/game_scenarios',
+			type: 'POST',
+			dataType: 'json',
+			data: {game_scenario: { faces: this.faces, viable_words: this.viableWords, max_score: parseInt(this.maxScore, 10) } }
+		})
+		.done(function(response) {
+			console.log("success");
+			console.log(response)
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+	}
 }
 
 

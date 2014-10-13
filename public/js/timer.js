@@ -4,8 +4,8 @@
 // var countdownTimer;
 // var finalCountdown = false;
 
-function GameTimer(seconds, game) {
-    this.seconds = seconds;
+function GameTimer(game) {
+    this.seconds = game.timelimit;
 
     this.nonNegativeTime = function() {
     	this.seconds--;
