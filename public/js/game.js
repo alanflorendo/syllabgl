@@ -1,6 +1,7 @@
 function Game() {
 	var BOARDSIZE = 5;
 	this.dict = new Dictionary;
+	this.viableWords = [];
 
 	this.timelimit = 90;
 	this.gameOver = false;

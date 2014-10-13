@@ -12,5 +12,7 @@ $(document).ready(function() {
 				$('#boggle_word').focus();
 	})
 
+	dc.checkAllPossibleWords();
+	g.viableWords = dc.viableWords;
 
 });
