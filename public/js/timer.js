@@ -5,21 +5,16 @@
 // var finalCountdown = false;
 
 function GameTimer(game) {
-    this.seconds = game.timelimit;
+	this.seconds = game.timelimit;
 
-    this.nonNegativeTime = function() {
-    	this.seconds--;
-    	if (this.seconds < 0) {
-    		return 0
-            game.gameOver = true;
-        }
-        else
-            return this.seconds;
-    }
-
-    this.secondPassed = function() {
-      $("#timer_num").html(this.nonNegativeTime());
-    } 
+	this.secondPassed = function() {
+		if (this.seconds <= 0) {
+			game.endGame();
+		} else {
+			this.seconds--;
+			$("#timer_num").html(this.seconds);
+			}
+	} 
         
-    var countdownTimer = setInterval('t.secondPassed()', 1000);
+	var countdownTimer = setInterval('t.secondPassed()', 1000);
 }

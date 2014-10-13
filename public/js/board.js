@@ -88,7 +88,7 @@ function Board(side) {
 	}
 
 	this.addWordToDOMAndUpdateScore = function(word) {
-		if (word.length === 3) {
+		if (word.length === 3 && !g.gameOver) {
 			$("#completed_words_3").append(word + ", ");
 			this.score += 1;
 		} else if (word.length === 4) {

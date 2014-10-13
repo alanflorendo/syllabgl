@@ -3,7 +3,7 @@ function Game() {
 	this.dict = new Dictionary;
 	this.viableWords = [];
 
-	this.timelimit = 90;
+	this.timelimit = 15;
 	this.gameOver = false;
 
 	this.setupBoard = function() {
@@ -41,6 +41,10 @@ function Game() {
 		} else if ( !g.bd.wordAlreadyGuessed(word) ) {
 			g.bd.rejectWord(word);
 		}
+	}
+
+	this.endGame = function() {
+		this.gameOver = true;
 	}
 
 
