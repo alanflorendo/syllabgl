@@ -1,7 +1,15 @@
 function GameScenario(faces) {
 	this.faces = faces;
+	this.faceString = "";
 	this.viableWords = [];
 	this.maxScore = 0;
+
+	this.storeFaces = function() {
+		var len = this.faces.len;
+		for (var i=0; i<len; i++) {
+			this.faceString = this.fa
+		}
+	}
 
 	this.scoreGame = function() {
 		numWords = this.viableWords.length;
@@ -25,7 +33,7 @@ function GameScenario(faces) {
 			url: '/game_scenarios',
 			type: 'POST',
 			dataType: 'json',
-			data: {game_scenario: { faces: this.faces, viable_words: this.viableWords, max_score: parseInt(this.maxScore, 10) } }
+			data: {game_scenario: { faces: this.faces.toString(), viable_words: this.viableWords, max_score: parseInt(this.maxScore, 10) } }
 		})
 		.done(function(response) {
 			console.log("success");
@@ -34,9 +42,6 @@ function GameScenario(faces) {
 		.fail(function() {
 			console.log("error");
 		})
-		.always(function() {
-			console.log("complete");
-		});
 	}
 }
 

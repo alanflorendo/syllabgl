@@ -3,17 +3,18 @@ function Game() {
 	this.dict = new Dictionary;
 	this.viableWords = [];
 
-	this.timelimit = 15;
+	this.timelimit = 90;
 	this.gameOver = false;
 
 	this.setupBoard = function() {
 		this.bd = new Board(BOARDSIZE);
 		this.bd.putBoardInDOM();
 		this.bd.generateDiesNeighbors();
+		this.dich = new DictChecker(this.dict, this.bd);
 	}
 
-	this.setupDict = function() {
-
+	this.runDictChecker = function() {
+		this.dich.checkAllPossibleWords();
 	}
 
 	this.isWord = function(word) {
