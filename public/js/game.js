@@ -10,10 +10,11 @@ function Game() {
 		this.bd = new Board(BOARDSIZE);
 		this.bd.putBoardInDOM();
 		this.bd.generateDiesNeighbors();
+		this.dich = new DictChecker(this.dict, this.bd);
 	}
 
-	this.setupDict = function() {
-
+	this.runDictChecker = function() {
+		this.dich.checkAllPossibleWords();
 	}
 
 	this.isWord = function(word) {
@@ -41,6 +42,10 @@ function Game() {
 		} else if ( !g.bd.wordAlreadyGuessed(word) ) {
 			g.bd.rejectWord(word);
 		}
+	}
+
+	this.endGame = function() {
+		this.gameOver = true;
 	}
 
 
