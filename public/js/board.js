@@ -1,6 +1,6 @@
 	
-function Board() {
-	SIDE = 5
+function Board(side) {
+	SIDE = side;
 	this.turns = 0;
 	this.allDice = []
 	this.score = 0;
@@ -87,8 +87,8 @@ function Board() {
 		return wordChars.join("");
 	}
 
-	this.addWordToDOM = function(word) {
-		if (word.length === 3) {
+	this.addWordToDOMAndUpdateScore = function(word) {
+		if (word.length === 3 && !g.gameOver) {
 			$("#completed_words_3").append(word + ", ");
 			this.score += 1;
 		} else if (word.length === 4) {
@@ -115,8 +115,9 @@ function Board() {
 	}
 
 	this.thisWordWorks = function(word, diceCollections) {
-		this.addWordToDOM(word);
 		this.highlightDiceCollections(diceCollections, "pink");
+		if (!g.gameOver) 
+			this.addWordToDOMAndUpdateScore(word);
 	}
 
 	this.rejectWord = function(word) {
