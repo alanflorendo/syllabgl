@@ -5,7 +5,7 @@ HIGHLIGHTDICECOLOR = "pink";
 function Board(side) {
 	SIDE = side;
 	this.turns = 0;
-	this.allDice = []
+	this.allDice = [];
 	this.score = 0;
 	this.wordsGuessed = [];
 	this.faces = [];
@@ -13,15 +13,19 @@ function Board(side) {
 	this.dice = [];
 
 	this.generateDice = function() {
-	  var lg = new LetterGenerator;
+	  lg = new LetterGenerator;
+	  this.allDice = [];
+	  this.faces = [];
+	  this.faceString = "";
+	  this.dice = [];
 
 	  for (var i=0; i<(SIDE * SIDE); i++){
 	    newDie = new Die(lg.getRandomFace());
 	    this.dice.push(newDie);
 	    this.faces.push(newDie.face);
-	    this.faceString = this.faceString.concat("," + newDie.face);
 	    this.allDice.push(newDie);
 	  }
+	  this.faceString = this.faces.join(",");
 
 	  return this.dice;
 	}
