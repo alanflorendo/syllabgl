@@ -7,7 +7,7 @@ function GameScenario(faces) {
 	this.storeFaces = function() {
 		var len = this.faces.len;
 		for (var i=0; i<len; i++) {
-			this.faceString = this.fa
+			this.faceString = this.faceString.concat("," + this.faces[i]);
 		}
 	}
 

@@ -30,7 +30,7 @@ function Game() {
 	}
 
 	this.doWord = function() {
-		g.bd.highlightDice(g.bd.dice, "lightgreen");
+		g.bd.highlightDice(g.bd.dice, NORMALDICECOLOR);
 		var word = $("#boggle_word").val().toUpperCase();
 		$("#boggle_word").val("");
 		if ( g.wordShouldBeSoughtOnBoard(word) &&  !g.bd.wordAlreadyGuessed(word)) {

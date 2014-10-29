@@ -1,3 +1,6 @@
+NORMALDICECOLOR = "linen";
+HIGHLIGHTDICECOLOR = "pink";
+
 	
 function Board(side) {
 	SIDE = side;
@@ -6,6 +9,7 @@ function Board(side) {
 	this.score = 0;
 	this.wordsGuessed = [];
 	this.faces = [];
+	this.faceString = "";
 	this.dice = [];
 
 	this.generateDice = function() {
@@ -15,6 +19,7 @@ function Board(side) {
 	    newDie = new Die(lg.getRandomFace());
 	    this.dice.push(newDie);
 	    this.faces.push(newDie.face);
+	    this.faceString = this.faceString.concat("," + newDie.face);
 	    this.allDice.push(newDie);
 	  }
 
@@ -115,7 +120,7 @@ function Board(side) {
 	}
 
 	this.thisWordWorks = function(word, diceCollections) {
-		this.highlightDiceCollections(diceCollections, "pink");
+		this.highlightDiceCollections(diceCollections, HIGHLIGHTDICECOLOR);
 		if (!g.gameOver) 
 			this.addWordToDOMAndUpdateScore(word);
 	}
