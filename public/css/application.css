@@ -116,7 +116,8 @@ th {
 }
 
 .missed_words_lists {
+	display: none;
 	font-weight: bold;
-	color: green;
+	color: red;
 }
 

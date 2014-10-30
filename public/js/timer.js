@@ -9,7 +9,6 @@ function GameTimer(game) {
 
 	this.secondPassed = function() {
 		if (this.seconds === 0 && !game.gameOver) {
-			console.log("end game from timer " + this.seconds);
 			game.endGame();
 		} else if (!game.gameOver) {
 			this.seconds--;

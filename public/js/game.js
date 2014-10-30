@@ -8,7 +8,7 @@ function Game() {
 	this.viableWords = [];
 	this.boardInfo = {};
 
-	this.timelimit = 90;
+	this.timelimit = 30;
 	this.gameOver = false;
 
 	this.getBoardInfo = function() {
@@ -34,7 +34,8 @@ function Game() {
 			url: route
 		})
 		call.done(function(data) {
-			that.bd.allViableWords = data.viable_words;
+			that.bd.allViableWords = data.viable_words.split(",");
+			that.bd.sortAndShowMissedWords();
 		})
 	}
 
@@ -77,13 +78,9 @@ function Game() {
 	}
 
 	this.endGame = function() {
-		this.gameOver = true;
-		this.getViableWords();
-		// $("#missed_words_list").html(this.bd.allViableWords);
+		g.gameOver = true;
+		g.getViableWords();
 	}
-
-
-
 
 
 }
