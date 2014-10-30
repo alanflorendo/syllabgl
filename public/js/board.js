@@ -2,30 +2,26 @@ NORMALDICECOLOR = "linen";
 HIGHLIGHTDICECOLOR = "pink";
 
 	
-function Board(side) {
-	SIDE = side;
+function Board(faces, max_score, viable_words) {
+	SIDE = 5;
+	this.faces = faces;
+	this.max_score = max_score;
+	this.viable_words = viable_words;
 	this.turns = 0;
 	this.allDice = [];
 	this.score = 0;
 	this.wordsGuessed = [];
-	this.faces = [];
-	this.faceString = "";
 	this.dice = [];
 
 	this.generateDice = function() {
-	  lg = new LetterGenerator;
 	  this.allDice = [];
-	  this.faces = [];
-	  this.faceString = "";
 	  this.dice = [];
 
 	  for (var i=0; i<(SIDE * SIDE); i++){
-	    newDie = new Die(lg.getRandomFace());
+	    newDie = new Die(this.faces[i]);
 	    this.dice.push(newDie);
-	    this.faces.push(newDie.face);
 	    this.allDice.push(newDie);
 	  }
-	  this.faceString = this.faces.join(",");
 
 	  return this.dice;
 	}

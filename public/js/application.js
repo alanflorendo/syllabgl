@@ -2,6 +2,7 @@ $(document).ready(function() {
 	g = new Game;
 	t = new GameTimer(g);
 	g.setupBoard();
+	g.getBoardInfo();
 	dc = new DictChecker(g.dict, g.bd);
 
 	$(document).keydown(function(event){
