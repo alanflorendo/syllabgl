@@ -1,0 +1,5 @@
+<% @gss.each do |gs| %>
+	GameScenario.create(faces: '<%= gs.faces %>', max_score: <%= gs.max_score %>, viable_words: '<%= gs.viable_words %>')
+	</br>
+	</br>
+<% end %>
