@@ -84,6 +84,15 @@ th {
 	/*height: 200px;*/
 }
 
+#missed_words {
+	border: 1px dotted lightgrey;
+	float: left;
+	padding: 3%;
+	margin: 	3% 6%;
+	width: 22%;
+	/*height: 200px;*/
+}
+
 .words_lists {
 	width: 27%;
 	padding: 1% 1%;

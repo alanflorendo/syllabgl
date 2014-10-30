@@ -69,6 +69,7 @@ function Game() {
 
 	this.endGame = function() {
 		this.gameOver = true;
+		$("#missed_words_list").html(this.bd.viable_words);
 	}
 
 
