@@ -2,16 +2,21 @@ NORMALDICECOLOR = "linen";
 HIGHLIGHTDICECOLOR = "pink";
 
 	
-function Board(faces, max_score, viable_words) {
+function Board(faces, max_score, bdId) {
 	SIDE = 5;
 	this.faces = faces;
 	this.max_score = max_score;
-	this.viable_words = viable_words;
+	this.bdId = bdId
 	this.turns = 0;
 	this.allDice = [];
 	this.score = 0;
 	this.wordsGuessed = [];
 	this.dice = [];
+
+	this.allViableWords = [];
+	this.missed3LetterWords = [];
+	this.missed4LetterWords = [];
+	this.missedLongLetterWords = [];
 
 	this.generateDice = function() {
 	  this.allDice = [];
@@ -42,6 +47,7 @@ function Board(faces, max_score, viable_words) {
 	}
 
 	this.putBoardInDOM = function() {
+		$("#max_score").html(this.max_score);
 		this.dice = this.generateDice();
 		var i = 0;
 		for (var tr=1; tr<=SIDE; tr++){ // go thru each row
@@ -127,6 +133,29 @@ function Board(faces, max_score, viable_words) {
 
 	this.rejectWord = function(word) {
 		$("#not_words").append(word + ", ");
+	}
+
+	this.getSortAndShowMissedWords = function() {
+		var len = this.allViableWords.length;
+		this.missed3LetterWords = [];
+		this.missed4LetterWords = [];
+		this.missedLongLetterWords = [];
+
+		for (var i=0; i<len; i++) {
+			var currentWord = this.allViableWords[i];
+			if (!this.wordAlreadyGuessed(currentWord)) {
+				if (this.allViableWords[i].length === 3)
+					this.missed3LetterWords.push(currentWord);
+				else if (this.allViableWords[i].length === 4)
+					this.missed4LetterWords.push(currentWord);
+				else
+					this.missedLongLetterWords.push(currentWord);
+			} // close if stmt--> only words not yet guessed
+		} // close loop, going thru all viable words
+		$(".missed_words_lists").css("display", "block");
+		$("#missed_words_3").append(this.missed3LetterWords.join(" "));
+		$("#missed_words_4").append(this.missed4LetterWords.join(" "));
+		$("#missed_words_long").append(this.missedLongLetterWords.join(" "));
 	}
 
 

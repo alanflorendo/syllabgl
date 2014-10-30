@@ -8,18 +8,34 @@
   font-size: 1em;
 }
 
+#stats {
+	margin-top: 0;
+	display: inline-block;
+	float: left;
+	width: 29%;
+	height: 60px;
+}
+
+#timer {
+	display: inline-block;
+	float: left;
+	margin-left: 20%;
+}
+
 #banner_title {
+	width: 29%;
 	font-family: 'Montserrat', sans-serif;
-	text-align: center;
+	margin-top: 0;
 }
 
 #title1 {
 	color: magenta;
+	font-size: 1.5em;
 
 }
 
 #title2 {
-	color: purple;
+	font-size: 2.5em;
 }
 
 #word_entry {
@@ -34,15 +50,24 @@
 	border: 2px solid black;
 }
 
-#main_panel_col_1 {
+#main_panel_row h4 {
+	display: inline-block;
 	float: left;
-	width: 25%;
+}
+
+#main_panel_col_1 {
+	clear: left;
+	float: left;
+	width: 35%;
 	margin-right: 5%;
-	margin-top: 2%;
+	/*margin-top: 2%;*/
 	padding: 1%;
 	border: 0.5% solid black;
 	text-align: center;
+}
 
+#main_panel_col_2 {
+	display: inline-block;
 }
 
 th {
@@ -56,41 +81,40 @@ th {
 }
 
 #board tr {
-	height: 50px;
+	height: 80px;
 }
 
 .die {
 	background-color: linen;
-	width: 50px;
+	width: 80px;
 	border: 2px solid royalblue;
 	border-radius: 20%;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
+	font-size: 1.4em;
+}
+
+#boggle_word {
+	display: inline-block;
+	float: left;
+	margin-left: 10%;
+	font-size: 1.75em;
+	width: 75%;
 }
 
 #words_so_far {
 	border: 2px dotted gray;
 	display: inline-block;
 	width: 90%;
-	/*height: 200px;*/
 }
 
 #not_a_word {
 	border: 1px dotted lightgrey;
+	clear: all;
 	float: left;
 	padding: 3%;
 	margin: 	3% 6%;
 	width: 22%;
-	/*height: 200px;*/
-}
-
-#missed_words {
-	border: 1px dotted lightgrey;
-	float: left;
-	padding: 3%;
-	margin: 	3% 6%;
-	width: 22%;
-	/*height: 200px;*/
 }
 
 .words_lists {
@@ -98,15 +122,43 @@ th {
 	padding: 1% 1%;
 	text-align: center;
 	/*height: 200px;*/
-	float: left;
+	/*float: left;*/
 	border: 1px dotted lightgrey;
 }
 
 #score_num {
 	line-height: 0;
+	font-size: 1.25em;
+	color: linen;
 }
 
 #timer_num {
 	line-height: 0;
+	font-size: 1.25em;
+	color: linen;
+}
+
+.missed_words_lists {
+	display: none;
+	font-weight: bold;
+	color: red;
+}
+
+.label {
+	font-weight: bold;
+	text-align: center;
+}
+
+#word_lists {
+	table-layout: fixed;
+}
+
+#word_lists td {
+	border: 2px dotted grey;
+	height: 125px;
+}
+
+#word_lists td:nth-child(2) {
+	width: 400px;
 }
 

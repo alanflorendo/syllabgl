@@ -8,9 +8,9 @@ function GameTimer(game) {
 	this.seconds = game.timelimit;
 
 	this.secondPassed = function() {
-		if (this.seconds <= 0) {
+		if (this.seconds === 0 && !game.gameOver) {
 			game.endGame();
-		} else {
+		} else if (!game.gameOver) {
 			this.seconds--;
 			$("#timer_num").html(this.seconds);
 			}
