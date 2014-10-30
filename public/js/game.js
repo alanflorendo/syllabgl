@@ -10,7 +10,7 @@ function Game() {
 	this.viableWords = [];
 	this.boardInfo = {};
 
-	this.timelimit = 8;
+	this.timelimit = 90;
 	this.gameOver = false;
 
 	this.getBoardInfo = function() {
