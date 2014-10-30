@@ -10,7 +10,7 @@ function Game() {
 	this.viableWords = [];
 	this.boardInfo = {};
 
-	this.timelimit = 90;
+	this.timelimit = 8;
 	this.gameOver = false;
 
 	this.getBoardInfo = function() {
@@ -69,6 +69,7 @@ function Game() {
 
 	this.endGame = function() {
 		this.gameOver = true;
+		$("#missed_words_list").html(this.bd.viable_words);
 	}
 
 
