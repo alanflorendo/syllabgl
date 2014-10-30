@@ -8,7 +8,7 @@ function Game() {
 	this.viableWords = [];
 	this.boardInfo = {};
 
-	this.timelimit = 30;
+	this.timelimit = 9;
 	this.gameOver = false;
 
 	this.getBoardInfo = function() {
@@ -35,7 +35,7 @@ function Game() {
 		})
 		call.done(function(data) {
 			that.bd.allViableWords = data.viable_words.split(",");
-			that.bd.sortAndShowMissedWords();
+			that.bd.getSortAndShowMissedWords();
 		})
 	}
 

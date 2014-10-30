@@ -135,7 +135,7 @@ function Board(faces, max_score, bdId) {
 		$("#not_words").append(word + ", ");
 	}
 
-	this.sortAndShowMissedWords = function() {
+	this.getSortAndShowMissedWords = function() {
 		var len = this.allViableWords.length;
 		this.missed3LetterWords = [];
 		this.missed4LetterWords = [];
