@@ -93,6 +93,11 @@ th {
 	/*height: 200px;*/
 }
 
+#missed_words_list {
+	display: block;
+	width: 18%;
+}
+
 .words_lists {
 	width: 27%;
 	padding: 1% 1%;
