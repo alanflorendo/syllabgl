@@ -71,9 +71,9 @@ function GameCollector() {
 	}
 
 	this.checkAndStoreGames = function(numTimes) {
-		for (var i=0; i<20; i++) {
+		for (var i=0; i<numTimes; i++) {
 			this.checkAndStoreGame();  // add to database of games, to be created
-			console.log("Finished Game Scenario #" + i + " of " + numTimes);
+			console.log("Finished Game Scenario #" + (i+1) + " of " + numTimes);
 		}
 	}
 
