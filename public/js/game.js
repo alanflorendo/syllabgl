@@ -2,8 +2,6 @@ function FakeBoard(object) {
 	this.faces = object.faces;
 }
 
-// fakebd = {};
-
 function Game() {
 	var BOARDSIZE = 5;
 	this.dict = new Dictionary;
@@ -21,12 +19,10 @@ function Game() {
 		})
 		call.done(function(data) {
 			that.bd = new Board(data.faces.split(","), data.max_score, data.id);
-			console.log(data);
 			that.bd.generateDice();
 			that.bd.putBoardInDOM();
 			that.bd.generateDiesNeighbors();
 			that.dich = new DictChecker(that.dict, that.bd);
-			console.log(data);
 		})
 	}
 
@@ -39,7 +35,6 @@ function Game() {
 		})
 		call.done(function(data) {
 			that.bd.allViableWords = data.viable_words;
-			console.log(data);
 		})
 	}
 
@@ -83,7 +78,8 @@ function Game() {
 
 	this.endGame = function() {
 		this.gameOver = true;
-		$("#missed_words_list").html(this.bd.viable_words);
+		this.getViableWords();
+		$("#missed_words_list").html(this.bd.allViableWords);
 	}
 
 
