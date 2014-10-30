@@ -2,12 +2,13 @@ function GameScenario(faces) {
 	this.faces = faces;
 	this.faceString = "";
 	this.viableWords = [];
+	this.viableWordsString = "";
 	this.maxScore = 0;
 
 	this.storeFaces = function() {
 		var len = this.faces.len;
 		for (var i=0; i<len; i++) {
-			this.faceString = this.fa
+			this.faceString = this.faceString.concat("," + this.faces[i]);
 		}
 	}
 
@@ -23,6 +24,10 @@ function GameScenario(faces) {
 		}
 	}
 
+	this.setViableWordsString = function() {
+		this.viableWordsString = this.viableWords.join(",");
+	}
+
 	this.saveGame = function() {
 		$.ajaxSetup({
 		headers: {
@@ -33,7 +38,7 @@ function GameScenario(faces) {
 			url: '/game_scenarios',
 			type: 'POST',
 			dataType: 'json',
-			data: {game_scenario: { faces: this.faces.toString(), viable_words: this.viableWords, max_score: parseInt(this.maxScore, 10) } }
+			data: {game_scenario: { faces: this.faces.join(","), viable_words: this.viableWordsString, max_score: this.maxScore } }
 		})
 		.done(function(response) {
 			console.log("success");
@@ -51,7 +56,7 @@ function GameCollector() {
 	var dict = new Dictionary;
 
 	this.checkAndStoreGame = function() {
-		bd = new Board;
+		bd = new Board(5);
 		bd.generateDice();
 		bd.putBoardInDOM();
 		bd.generateDiesNeighbors();
@@ -59,14 +64,16 @@ function GameCollector() {
 		dc = new DictChecker(dict, bd);
 		dc.checkAllPossibleWords();
 		gs.viableWords = dc.viableWords;
-		gs.maxScore = gs.scoreGame();
+		gs.setViableWordsString();
+		gs.scoreGame();
+		gs.saveGame();
 		this.scenarios.push(gs);
-		console.log(gs);
 	}
 
 	this.checkAndStoreGames = function(numTimes) {
-		for (var i=0; i<20; i++) {
+		for (var i=0; i<numTimes; i++) {
 			this.checkAndStoreGame();  // add to database of games, to be created
+			console.log("Finished Game Scenario #" + (i+1) + " of " + numTimes);
 		}
 	}
 

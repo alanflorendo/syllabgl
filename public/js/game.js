@@ -1,10 +1,33 @@
+function FakeBoard(object) {
+	this.faces = object.faces;
+}
+
+// fakebd = {};
+
 function Game() {
 	var BOARDSIZE = 5;
 	this.dict = new Dictionary;
 	this.viableWords = [];
+	this.boardInfo = {};
 
 	this.timelimit = 90;
 	this.gameOver = false;
+
+	this.getBoardInfo = function() {
+		var that = this;
+		var call = $.ajax({
+			type: "GET",
+			url: "/game.json"
+		})
+		call.done(function(data) {
+			that.bd = new Board(data.faces.split(","), data.max_score, data.viable_words);
+			that.bd.generateDice();
+			that.bd.putBoardInDOM();
+			that.bd.generateDiesNeighbors();
+			that.dich = new DictChecker(that.dict, that.bd);
+			console.log(data);
+		})
+	}
 
 	this.setupBoard = function() {
 		this.bd = new Board(BOARDSIZE);
@@ -30,7 +53,7 @@ function Game() {
 	}
 
 	this.doWord = function() {
-		g.bd.highlightDice(g.bd.dice, "lightgreen");
+		g.bd.highlightDice(g.bd.dice, NORMALDICECOLOR);
 		var word = $("#boggle_word").val().toUpperCase();
 		$("#boggle_word").val("");
 		if ( g.wordShouldBeSoughtOnBoard(word) &&  !g.bd.wordAlreadyGuessed(word)) {
