@@ -2,11 +2,12 @@ NORMALDICECOLOR = "linen";
 HIGHLIGHTDICECOLOR = "pink";
 
 	
-function Board(faces, max_score, viable_words) {
+function Board(faces, max_score, viable_words, bdId) {
 	SIDE = 5;
 	this.faces = faces;
 	this.max_score = max_score;
 	this.viable_words = viable_words;
+	this.bdId = bdId
 	this.turns = 0;
 	this.allDice = [];
 	this.score = 0;
