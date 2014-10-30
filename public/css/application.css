@@ -149,11 +149,16 @@ th {
 	text-align: center;
 }
 
+#word_lists {
+	table-layout: fixed;
+}
+
 #word_lists td {
 	border: 2px dotted grey;
 	height: 125px;
 }
 
-.list_data {
-	width: 80%;
+#word_lists td:nth-child(2) {
+	width: 400px;
 }
+
