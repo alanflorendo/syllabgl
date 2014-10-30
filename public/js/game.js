@@ -20,7 +20,8 @@ function Game() {
 			url: "/game.json"
 		})
 		call.done(function(data) {
-			that.bd = new Board(data.faces.split(","), data.max_score, data.viable_words, data.bdId);
+			that.bd = new Board(data.faces.split(","), data.max_score, data.viable_words, data.id);
+			console.log(data);
 			that.bd.generateDice();
 			that.bd.putBoardInDOM();
 			that.bd.generateDiesNeighbors();
@@ -31,16 +32,13 @@ function Game() {
 
 	this.getViableWords = function() {
 		var that = this;
+		var route = "/game/solution/" + that.bd.bdId + ".json"
 		var call = $.ajax({
 			type: "GET",
-			url: "/game.json"
+			url: route
 		})
 		call.done(function(data) {
-			that.bd = new Board(data.faces.split(","), data.max_score, data.viable_words);
-			that.bd.generateDice();
-			that.bd.putBoardInDOM();
-			that.bd.generateDiesNeighbors();
-			that.dich = new DictChecker(that.dict, that.bd);
+			that.bd.allViableWords = data.viable_words;
 			console.log(data);
 		})
 	}

@@ -13,6 +13,7 @@ function Board(faces, max_score, viable_words, bdId) {
 	this.score = 0;
 	this.wordsGuessed = [];
 	this.dice = [];
+	this.allViableWords = [];
 
 	this.generateDice = function() {
 	  this.allDice = [];
