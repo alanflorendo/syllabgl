@@ -8,7 +8,7 @@ get '/game.json' do
 	content_type :json
 	game = GameScenario.find(rand(GameScenario.count))
 	# game.to_json
-	limited_game = { id: game.id, faces: game.faces, max_score: game.max_score, viable_words: game.viable_words }
+	limited_game = { id: game.id, faces: game.faces, max_score: game.max_score }
 	limited_game.to_json
 end
 

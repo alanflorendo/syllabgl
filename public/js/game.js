@@ -20,7 +20,7 @@ function Game() {
 			url: "/game.json"
 		})
 		call.done(function(data) {
-			that.bd = new Board(data.faces.split(","), data.max_score, data.viable_words, data.id);
+			that.bd = new Board(data.faces.split(","), data.max_score, data.id);
 			console.log(data);
 			that.bd.generateDice();
 			that.bd.putBoardInDOM();
