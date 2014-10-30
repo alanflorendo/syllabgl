@@ -115,3 +115,8 @@ th {
 	line-height: 0;
 }
 
+.missed_words_lists {
+	font-weight: bold;
+	color: green;
+}
+

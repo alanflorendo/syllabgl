@@ -79,7 +79,7 @@ function Game() {
 	this.endGame = function() {
 		this.gameOver = true;
 		this.getViableWords();
-		$("#missed_words_list").html(this.bd.allViableWords);
+		// $("#missed_words_list").html(this.bd.allViableWords);
 	}
 
 
